@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { initialState, reducer } from './reducer';
+import { ProductProvider } from './ProductProvider';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ProductProvider initialState={initialState} reducer={reducer}>
+      <App />
+    </ProductProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
