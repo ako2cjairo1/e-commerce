@@ -51,6 +51,7 @@
 }
 
 .header__basketCount {
+  color: #f08804;
   margin-left: 10px;
   margin-right: 10px;
 }

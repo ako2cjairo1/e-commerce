@@ -5,10 +5,13 @@ import { useProductContext } from '../ProductProvider'
 export default function CheckOutItem({ id, title, image, price, rating }) {
     const [{ basket }, dispatch] = useProductContext();
     const removeFromBasket = () => {
-        // TODO: create reducer to remove the item from the basket
+        dispatch({
+            type: 'REMOVE_FROM_BASKET',
+            id: id,
+        });
     }
     return (
-        <div className='checkoutItem'>
+        <div key={id} className='checkoutItem'>
             <img src={image} alt="" className="checkoutItem__image" />
 
             <div className="checkoutItem__info">
@@ -26,6 +29,20 @@ export default function CheckOutItem({ id, title, image, price, rating }) {
                             ))
                     }
                 </div>
+
+                {/* <div className="row">
+                    <div className="col-2">
+                        <button className="add">
+                        +
+                        </button>
+                        <button className="remove">
+                        -
+                        </button>
+                    </div>
+                    <div className="col-2 text-right">
+                        {item.qty} x P{item.price.toFixed(2)}
+                    </div>
+                </div> */}
                 <button className="checkoutItem__removeButton" onClick={removeFromBasket}>Remove from Basket</button>
             </div>
         </div>

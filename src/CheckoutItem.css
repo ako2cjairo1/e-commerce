@@ -25,3 +25,26 @@
   font-size: 17px;
   font-weight: 800;
 }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add {
+  background-color: #40c0f0;
+  width: 1.5rem;
+}
+
+.remove {
+  background-color: #f04040;
+  width: 1.5rem;
+}
+
+.col-1 {
+  flex: 1;
+}
+
+.col-2 {
+  flex: 2;
+}

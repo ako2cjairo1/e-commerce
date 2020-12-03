@@ -10,8 +10,16 @@ export const reducer = (state, action) => {
                 basket: [...state.basket, action.item],
             };
         case 'REMOVE_FROM_BASKET':
+            const itemIndex = state.basket.findIndex((item) => item.id == action.id);
+            let newBasket = [...state.basket];
+            
+            if (itemIndex >= 0) {
+                newBasket.splice(itemIndex, 1);
+            }
+
             return {
-                // TODO: implement a remove to basket functionality
+                ...state,
+                basket: newBasket
             };
         
         default:

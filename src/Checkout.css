@@ -5,6 +5,19 @@
   height: max-content;
 }
 
+.checkout__left {
+  float: left;
+  min-width: 600px;
+}
+
+.checkout__right {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
 .checkout__ad {
   width: 100%;
   margin-bottom: 10px;
