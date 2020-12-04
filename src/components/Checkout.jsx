@@ -6,7 +6,7 @@ import Subtotal from './Subtotal';
 
 
 export default function Checkout() {
-    const [{ basket }, dispatch] = useProductContext();
+    const [{ basket, user }, dispatch] = useProductContext();
     const isBasketEmpty = basket?.length > 0 ? false : true;
     const subtotalDisplay = isBasketEmpty ? 'checkout__right hidden' : 'checkout__right';
     const basketTitle = isBasketEmpty ? 'Your Amazon Basket is empty.' : 'Shopping Basket';
@@ -14,12 +14,20 @@ export default function Checkout() {
     return (
         <div className='checkout'>
             <div className="checkout__left">
-                <img src="" alt="" className="checkout__ad"/>
+                <img 
+                    src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonServices/Site/US/Product/FBA/Outlet/Merchandising/AMZN_OutletDeals_Template_March_1500x200_wh_EN.jpg"
+                    alt="Outlet"
+                    className="checkout__ad"
+                />
                 
-                <div>
-                    <h2 className="checkout__title">{basketTitle}</h2>
+                <div className="checkout__title">
+                    {
+                        <h4>Hello, <strong>{ user ? user.email : 'Guest'}</strong></h4>
+                    }
+                    <h2>{basketTitle}</h2>
                     {emptyBasketDescription}
-
+                </div>
+                <div className="checkout__items">
                     {
                         basket.map(item => (
                             <CheckoutItem
