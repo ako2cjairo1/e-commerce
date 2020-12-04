@@ -1,5 +1,6 @@
 export const initialState = {
     basket: [],
+    user: null,
 };
 
 export const reducer = (state, action) => {
@@ -10,7 +11,9 @@ export const reducer = (state, action) => {
                 basket: [...state.basket, action.item],
             };
         case 'REMOVE_FROM_BASKET':
-            const itemIndex = state.basket.findIndex((item) => item.id == action.id);
+            const itemIndex = state.basket.findIndex(
+                (item) => item.id == action.id
+            );
             let newBasket = [...state.basket];
             
             if (itemIndex >= 0) {
@@ -21,6 +24,11 @@ export const reducer = (state, action) => {
                 ...state,
                 basket: newBasket
             };
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
+            };
         
         default:
             return state;
@@ -28,6 +36,10 @@ export const reducer = (state, action) => {
 };
 
 // Selector
+export const getUser = (user) => {
+    return user.user.email;
+ };
+
 export const getBasketItemsCount = (basket) => { 
     return basket.length;
 };
