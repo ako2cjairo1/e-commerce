@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Product.css'
 import { useProductContext } from '../ProductProvider';
+import CheckIcon from '@material-ui/icons/Check';
 
 export default function Product({ id, title, price, rating, image }) {
     const [{ basket }, dispatch] = useProductContext();
@@ -24,7 +25,7 @@ export default function Product({ id, title, price, rating, image }) {
             <div className="product__info">
                 <p>{ title }</p>
                 <p className="product__price">
-                    <small>$</small>
+                    <small>₱ </small>
                     <strong>{ price }</strong>
                 </p>
                 <div className="product__rating">
@@ -42,7 +43,8 @@ export default function Product({ id, title, price, rating, image }) {
                 src={ image }
                 alt=""
             />
-            <button onClick={addToBasket}>Add to Basket</button>
+            <CheckIcon /> <p>Added to Cart</p>
+            <button onClick={addToBasket}>Add to Cart</button>
         </div>
     )
 }

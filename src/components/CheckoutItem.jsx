@@ -2,7 +2,7 @@ import React from 'react'
 import '../CheckoutItem.css'
 import { useProductContext } from '../ProductProvider'
 
-export default function CheckOutItem({ id, title, image, price, rating }) {
+export default function CheckOutItem({ id, title, image, price, rating, hideRemoveFromBasketButton }) {
     const [{ basket }, dispatch] = useProductContext();
     const removeFromBasket = () => {
         dispatch({
@@ -17,7 +17,7 @@ export default function CheckOutItem({ id, title, image, price, rating }) {
             <div className="checkoutItem__info">
                 <p className='checkoutItem__title'>{title}</p>
                 <p className="checkoutItem__price">
-                    <small>P</small>
+                    <small>₱</small>
                     <strong>{price}</strong>
                 </p>
                 <div className="checkoutItem__rating">
@@ -43,7 +43,13 @@ export default function CheckOutItem({ id, title, image, price, rating }) {
                         {item.qty} x P{item.price.toFixed(2)}
                     </div>
                 </div> */}
-                <button className="checkoutItem__removeButton" onClick={removeFromBasket}>Remove from Basket</button>
+                {!hideRemoveFromBasketButton && (
+                    <button 
+                        className="checkoutItem__removeButton" 
+                        onClick={removeFromBasket}>
+                        Remove from Basket
+                    </button>
+                )}
             </div>
         </div>
     )

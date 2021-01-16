@@ -7,6 +7,7 @@ import Login from './components/Login';
 import { auth } from './firebase'
 import { useProductContext } from './ProductProvider';
 import Payment from './components/Payment';
+import Orders from './components/Orders';
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js'
 
@@ -37,6 +38,10 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route path='/orders'>
+            <Header />
+            <Orders />
+          </Route>
           <Route path='/login'>
             <Login />
           </Route>

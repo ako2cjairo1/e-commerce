@@ -26,7 +26,7 @@ export default function Subtotal() {
                 value={getBasketSubTotal(basket)}
                 displayType={"text"}
                 thousandSeparator={true}
-                prefix={"P"}
+                prefix={"₱"}
             />
             <button onClick={ () => history.push('/payment')}>Proceed to checkout</button>
         </div>
